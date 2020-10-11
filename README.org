@@ -1,1 +1,4 @@
-Just a simple dwm config. with the Dracula color theme.
+Just a simple [[https://dwm.suckless.org][dwm]] config. with the Dracula color theme, and a patch or two.
+
+**** Patches
++ [[https://dwm.suckless.org/patches/noborder/dwm-noborder-6.1.diff][noborder]]
