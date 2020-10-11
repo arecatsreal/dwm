@@ -1,0 +1,1 @@
+Just a simple dwm config. with the Dracula color theme.
