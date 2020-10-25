@@ -12,9 +12,12 @@ vpnstatus () {
 ldate () {
     echo $(date +"%a %b %D %R:%S")
 }
+batt () {
+    acpi
+}
 
 while true
 do
-    xsetroot -name "| $(vpnstatus) | $(ldate) |"
+    xsetroot -name "| $(acpi) | $(vpnstatus) | $(ldate) |"
     sleep 1 
 done
