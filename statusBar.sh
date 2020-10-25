@@ -9,9 +9,12 @@ vpnstatus () {
 	echo "Disconneced"
     fi
 }
+ldate () {
+    echo $(date +"%a %b %D %R:%S")
+}
+
 while true
 do
-    xsetroot -name "| $(vpnstatus) | $(date) |"
-    #echo "| $(vpnstatus) | $(date) |"
+    xsetroot -name "| $(vpnstatus) | $(ldate) |"
     sleep 1 
 done
