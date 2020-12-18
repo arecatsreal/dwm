@@ -28,7 +28,6 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -66,8 +65,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("emacsclient -a '' -c") },
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("qutebrowser") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("mpv-yt") },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("mumble") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
