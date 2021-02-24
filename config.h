@@ -56,8 +56,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dracula_bg, "-nf", dracula_fg, "-sb", dracula_purp, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
-//static const char *termcmd[]  = { "alacritty", NULL };
+//static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *textcmd[]  = { "emacs", NULL };
 
 static Key keys[] = {
@@ -67,7 +67,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("emacsclient -a '' -c") },
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("mpv-yt") },
-	{ MODKEY,                       XK_c,      spawn,          SHCMD("mumble") },
+	{ MODKEY,                       XK_a,      spawn,          SHCMD("alacritty -e amfora") },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("OFpicom") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
