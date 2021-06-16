@@ -3,10 +3,10 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "UbuntuMono Nerd Font Mono:size=10" };
+static const char dmenufont[]       = "UbuntuMono Nerd Font Mono:size=10";
 static const char dracula_bg[]       = "#282a36";
 static const char col_gray2[]       = "#444444";
 static const char dracula_fg[]       = "#f8f8f2";
@@ -55,7 +55,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dracula_bg, "-nf", dracula_fg, "-sb", dracula_purp, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dracula_bg, "-nf", dracula_fg, "-sb", dracula_purp, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL};
 //static const char *termcmd[]  = { "st", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *textcmd[]  = { "emacs", NULL };
@@ -64,23 +65,27 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_t,      spawn,          SHCMD("emacsclient -a '' -c") },
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("firefox") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("qutebrowser") },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("OFpicom") },
+	{ MODKEY,                       XK_b,      spawn,          SHCMD("nobar") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("date_read") },
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("mpv-yt") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("alacritty -e amfora") },
-	{ MODKEY,                       XK_c,      spawn,          SHCMD("OFpicom") },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_i,      spawn,          SHCMD("image_copy") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("screen_shooter") },
+	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("p") },
+//	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+//	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,		XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,				XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_g,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,		XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,				XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
